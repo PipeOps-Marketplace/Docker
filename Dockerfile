@@ -15,8 +15,6 @@ RUN curl -fsSL https://github.com/nicolas-van/multirun/releases/download/1.1.3/m
 
 FROM quay.io/keycloak/keycloak:22.0.1
 
-COPY java.config /etc/crypto-policies/back-ends/java.config
-
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 
 COPY --from=bins --chmod=0755 /multirun /usr/bin/multirun
